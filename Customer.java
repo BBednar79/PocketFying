@@ -1,15 +1,19 @@
-package packetlayer.entities;
+import java.util.ArrayList;
 
 public class Customer {
 	
-	private Form[] forms = new Form[8];
+	private ArrayList<Form> forms;
+	private String name;
+	private String email;
 	
-	public Customer(){
-	//Forms should probably be created here.
+	public Customer(String name, String email){
+		this.name = name;
+		this.email = email;
+		this.forms = new ArrayList<Form>();
 	}
 	
 	
-	public Form[] getForms(){
-		return forms;
+	public ArrayList<Form> getCustomerForms(){
+		return this.forms;
 	}
 }
