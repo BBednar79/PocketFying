@@ -1,5 +1,13 @@
 package packetlayer;
 
+import java.util.ArrayList;
+
+import packetlayer.entities.Customer;
+
 public interface Input {
-	//Will have methods to pass information from database to manager and receive updates from Manager.
+	ArrayList<Customer> searchCustomer(String name);
+	Customer getCustomer(String name); 
+	void updateDatabase(Customer customer);
+	boolean verifyUsername(String username);
+	boolean verifyPassword(String password);
 }
