@@ -9,7 +9,7 @@ public class Database {
     public Database() {
     	 try {
     	     Class.forName("com.mysql.jdbc.Driver");
-    	     connection = DriverManager.getConnection("jdbc:mysql://66.6.115.212:1433/var/lib/mysql/am_packetLayer/", "root", "NCAPSSQLison#1");
+    	     connection = DriverManager.getConnection("jdbc:mysql://66.6.115.212:443/am_packetLayer", "root", "");
     	     statement = connection.createStatement();
     	 } catch (Exception ex) {
     	     System.out.println("Error: " + ex);
@@ -19,17 +19,18 @@ public class Database {
     	    
     public void getData() {
     	 try {
-    	     String query = "select * from UserList";
+    	     String query = "select * from User_List";
     	     resultSet = statement.executeQuery(query);
     	     System.out.println("Records from Database");
     	     while (resultSet.next()) {
-    	  String userNumber = resultSet.getString("UserNumber");
-    	  String userName = resultSet.getString("UserName");
-    	  String password = resultSet.getString("Password");
-    	  String userLevel = resultSet.getString("UserLevel");
+    	    	 String userNumber = resultSet.getString("UserNumber");
+    	    	 String userName = resultSet.getString("UserName");
+    	    	 String password = resultSet.getString("Password");
+    	    	 String userLevel = resultSet.getString("UserLevel");
 
-    	  System.out.println("User Number " + userNumber + userName + password + userLevel);
+    	    	 System.out.println("User Number " + userNumber + userName + password + userLevel);
     	     }
+    	     System.out.println("");
     	 } catch(Exception ex) {
     	     System.out.println(ex);
     	 }
@@ -37,5 +38,6 @@ public class Database {
     
     public static void main(String[] args){
     	Database data = new Database();
+    	data.getData();
     }
 }

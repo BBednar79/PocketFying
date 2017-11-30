@@ -10,9 +10,11 @@ public class Login extends JPanel{
 	JPasswordField password;
 	TextPrompt ut;
 	TextPrompt pt;
+	private boolean correct;
 	
 
 	public Login(){
+		correct = false;
 		this.setLayout(null);
 		loginButton = new JButton("Login");
 		username = new JTextField(15);
@@ -47,13 +49,18 @@ public class Login extends JPanel{
 		pt.setFont(new Font("Password", Font.PLAIN, size));
 	}
 	
-	public void authenticate(JFrame a){
+	public boolean correct(){
+		return correct;
+	}
+	
+	public void authenticate(JFrame a, JPanel b){
 		loginButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent ae) {
 				String puname = username.getText();
 				String ppaswd = password.getText();
 				if(puname.equals("test") && ppaswd.equals("12345")) {
-					
+					correct = true;
+					b.setVisible(false);
 				} else {
 
 					JOptionPane.showMessageDialog(null,"Wrong Password / Username");

@@ -1,7 +1,10 @@
 package packetlayer.controller;
 
+import java.util.ArrayList;
+
 import packetlayer.Input;
 import packetlayer.Output;
+import packetlayer.entities.Customer;
 
 public class Manager {
 	private Input input;
@@ -14,7 +17,11 @@ public class Manager {
 		this.output = out; //Gets Output device from MainApp.
 	}
 	
+	public ArrayList<Customer> searchCustomer(String name){
+		return input.searchCustomer(name);
+	}
+	
 	public void initialize(){
-		//Initializes everything in manager.
+		//Initializes everything.
 	}
 }
